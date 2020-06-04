@@ -1,10 +1,10 @@
-#include <gprs.h>
-#include <SoftwareSerial.h>
+#include <gprs.h>  // for Comunicating with SIM 900
+#include <SoftwareSerial.h> // for Comunicating with SIM 900
 
-const int trigPin = 2;
-const int echoPin = 4;
-const int ledPin =13;
-const int  medium =60;
+const int trigPin = 2; // signal out pins for Sensor
+const int echoPin = 4; // signal in pin for Sensor
+const int ledPin =13; 
+const int  medium =60;  
 const int  high=35;
 const int low=80;
 GPRS gprs;
@@ -70,7 +70,7 @@ void sendSMS(String d){
     gprs.preInit();
     delay(1000);
     Message.toCharArray(msg, Message.length());
-    gprs.sendSMS("0724226XXX",msg);
+    gprs.sendSMS("0724226XXX",msg); // sending message
     }else{
      Serial.println("garbled SMS, Repeat Sensor Read");
      delay(100);
