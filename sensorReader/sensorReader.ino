@@ -11,14 +11,15 @@ GPRS gprs;
  
 void setup() {
   
-  Serial.begin(9600);
+  Serial.begin(9600);  //Set BaudRate for Comm
   
 }
  
 void loop() {
 
   long duration, inches, cm;
-  pinMode(trigPin, OUTPUT);
+  // Sensor Init
+  pinMode(trigPin, OUTPUT); 
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
   digitalWrite(trigPin, HIGH);
@@ -50,7 +51,7 @@ void loop() {
   delay(100);
  }
 }else{
-  Serial.println("Garbled Read!, Repeating");
+  Serial.println("Garbled Read!, Repeating"); // capture junk data
   delay(100);
  }
 }
